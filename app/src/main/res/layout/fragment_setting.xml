@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3f64bb"
+    android:paddingTop="50dp"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    tools:context=".fragments.SettingFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLanguage"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:background="@drawable/button_shape_white"
+            android:text="Ngôn ngữ"
+            android:textSize="15sp"
+            android:paddingLeft="30dp"
+            android:gravity="center|left"
+            android:drawablePadding="30dp"
+            android:drawableStart="@drawable/ellipse14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAccount"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_shape_white"
+            android:text="Tài khoản"
+            android:textSize="15sp"
+            android:paddingLeft="30dp"
+            android:gravity="center|left"
+            android:drawablePadding="30dp"
+            android:drawableStart="@drawable/ellipse13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLanguage" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNotify"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_shape_white"
+            android:text="Thông báo"
+            android:paddingLeft="30dp"
+            android:gravity="center|left"
+            android:drawablePadding="30dp"
+            android:textSize="15sp"
+            android:drawableStart="@drawable/ellipse12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnAccount" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

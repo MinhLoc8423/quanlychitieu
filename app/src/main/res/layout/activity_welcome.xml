@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_background"
     android:maxWidth="500dp"
-    tools:context=".WelcomeActivity">
+    tools:context=".activies.WelcomeActivity">
 
     <ImageView
         android:id="@+id/imageView2"

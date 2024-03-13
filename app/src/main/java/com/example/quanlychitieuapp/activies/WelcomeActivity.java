@@ -1,4 +1,4 @@
-package com.example.quanlychitieuapp;
+package com.example.quanlychitieuapp.activies;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.quanlychitieuapp.R;
 
 public class WelcomeActivity extends AppCompatActivity {
 

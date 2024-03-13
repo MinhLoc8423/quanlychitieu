@@ -1,4 +1,4 @@
-package com.example.quanlychitieuapp;
+package com.example.quanlychitieuapp.activies;
 
 import static android.content.ContentValues.TAG;
 
@@ -12,11 +12,11 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.example.quanlychitieuapp.R;
+import com.google.firebase.FirebaseNetworkException;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String name = edtuser.getText().toString();
                 String password = editpass.getText().toString();
-                auth.signInWithEmailAndPassword(name,password)
+                auth.signInWithEmailAndPassword(name, password)
                         .addOnCompleteListener(LoginActivity.this, task -> {
                             if (task.isSuccessful()) {
                                 // Đăng nhập thành công
@@ -48,11 +48,20 @@ public class LoginActivity extends AppCompatActivity {
                                 finish();
                             } else {
                                 // Đăng nhập thất bại
-                                Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
-                                // Hiển thị thông báo lỗi cho người dùng
+                                Exception exception = task.getException();
+                                String message;
+                                if (exception instanceof FirebaseAuthInvalidCredentialsException) {
+                                    message = "Sai tên đăng nhập hoặc mật khẩu. Vui lòng thử lại.";
+                                } else if (exception instanceof FirebaseNetworkException) {
+                                    message = "Lỗi kết nối mạng. Vui lòng kiểm tra kết nối internet và thử lại.";
+                                } else {
+                                    message = "Đăng nhập thất bại. Vui lòng thử lại.";
+                                    Log.w(TAG, "signInWithEmail:failure", exception);
+                                }
+                                Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                             }
                         });
+
             }
         });
 
